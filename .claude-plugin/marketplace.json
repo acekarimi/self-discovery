@@ -1,0 +1,14 @@
+{
+  "name": "ace-karimi",
+  "description": "Skills by Ace Karimi for building a personal brand and online business with AI",
+  "owner": {
+    "name": "Ace Karimi"
+  },
+  "plugins": [
+    {
+      "name": "self-discovery",
+      "source": "./plugins/self-discovery",
+      "description": "A one-question-at-a-time interview that uncovers who you are and what to build, then writes your profile and master plan"
+    }
+  ]
+}
