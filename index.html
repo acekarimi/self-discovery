@@ -73,6 +73,7 @@ code { font-family: var(--font-mono); font-size: 0.9em; background: var(--accent
 .tips { display: grid; gap: 10px; margin: 0; padding-left: 20px; }
 .tips li { max-width: 62ch; }
 .next { border-top: 1px solid var(--line); padding-top: 32px; display: grid; gap: 12px; }
+a { color: var(--accent); }
 .byline { font-size: 14px; color: var(--muted); }
 </style>
 </head>
@@ -105,7 +106,7 @@ code { font-family: var(--font-mono); font-size: 0.9em; background: var(--accent
       <ol class="steps">
         <li>Tap <b>Copy the prompt</b>.</li>
         <li>Open a new chat at claude.ai or in the Claude app and paste it.</li>
-        <li>Pick Quick (about 20–30 minutes) or Deep (about 60–90 minutes) and answer the first question.</li>
+        <li>Pick Quick or Deep and answer the first question.</li>
       </ol>
       <div class="row">
         <button class="btn" id="copy" type="button">Copy the prompt</button>
@@ -127,10 +128,10 @@ code { font-family: var(--font-mono); font-size: 0.9em; background: var(--accent
 - Be honest, not flattering. Point out gaps, math that doesn&#x27;t add up, or plans that spread me too thin. Give your reasons, then let me decide.
 - This is self-discovery and planning, not therapy. If I share something that sounds like a crisis or needs professional support, pause, respond with care and point me to professional help.
 
-At the start, tell me that we can pause any time and that talking through my answers with voice dictation (the microphone button, or a tool like Wispr Flow) gets better answers than typing. Then let me pick a pace:
+At the start, frame this as a serious session: tell me to take my time, that it doesn&#x27;t have to happen in one sitting, and that I should speak my answers instead of typing them, using a voice dictation tool like Wispr Flow (or the microphone button). When I finish talking, I hit Enter and send it. Don&#x27;t give me a time estimate. Then let me pick a pace:
 
-- **Quick (about 20–30 minutes):** cover topics 1, 3 and 5 below in about 8–10 questions, then write a short version of the three deliverables.
-- **Deep (about 60–90 minutes):** cover every topic, then write the full deliverables.
+- **Quick:** cover topics 1, 3 and 5 below in about 8–10 questions, then write a short version of the three deliverables.
+- **Deep:** cover every topic, then write the full deliverables.
 
 ## The topics, in order
 
@@ -148,6 +149,8 @@ Write three things, in the first person (&quot;I&quot;) so they read as mine:
 1. **Who I Am &amp; What I&#x27;m Building:** my track record, labeled strengths, energizers and drainers, capacity, where things stand now, the people around me, and my biggest risk in my own words.
 2. **My recommendation:** what to focus on first and why, what that does NOT mean, and one test with a date that would tell me to change course.
 3. **My master plan:** how my ideas connect, my offer and price ladder, a 90-day roadmap with checkpoints, a weekly rhythm, the income math worked backward from my goals, focus rules plus a &quot;parking lot&quot; for new ideas, and a simple scoreboard.
+
+End my master plan with this line, exactly: &quot;This exercise was created by Ace Karimi (@ace.invest on Instagram).&quot;
 
 Leave out sensitive personal details unless I ask you to include them. After you deliver, ask what I want to change, and apply my corrections exactly.
 
@@ -172,17 +175,17 @@ Start now with a short welcome and the pace choice. Once I&#x27;ve picked, ask Q
   <section aria-labelledby="tips">
     <h2 id="tips">Get the most out of it</h2>
     <ul class="tips">
-      <li><b>Talk, don't type.</b> Use the microphone button or a voice tool like Wispr Flow. You'll say more than you'd ever type, and that's where the insight is.</li>
+      <li><b>Speak, don't type.</b> Use a voice tool like Wispr Flow (or the microphone button) to speak your story and answers. When you're done talking, hit Enter and send. You'll say more than you'd ever type, and that's where the insight is.</li>
       <li><b>Be specific.</b> When Claude asks for proof, give a real moment, a real number or a real name.</li>
-      <li><b>Take breaks.</b> You can stop and come back to the same chat later. On the free plan you may hit a message limit partway through; just continue when it resets.</li>
+      <li><b>Take your time.</b> Treat it as a serious session. It doesn't have to happen in one sitting: stop and come back to the same chat later. On the free plan you may hit a message limit partway through; just continue when it resets.</li>
       <li><b>Push back.</b> If a label or summary doesn't fit, correct it. Your words win.</li>
     </ul>
   </section>
 
   <div class="next">
     <h2>Got your plan?</h2>
-    <p>The next step is a content system that runs on it: ideas, scripts, editing and posting, with AI doing the heavy lifting. If you want help building yours, DM me <b>WORKFLOW</b> on Instagram.</p>
-    <p class="byline">Created by Ace Karimi</p>
+    <p>The next step is a content system that runs on it: ideas, scripts, editing and posting, with AI doing the heavy lifting. If you want help building yours, DM me <b>WORKFLOW</b> on Instagram at <a href="https://www.instagram.com/ace.invest/">@ace.invest</a>.</p>
+    <p class="byline">Created by Ace Karimi · <a href="https://www.instagram.com/ace.invest/">@ace.invest</a></p>
   </div>
 </main>
 <script>
