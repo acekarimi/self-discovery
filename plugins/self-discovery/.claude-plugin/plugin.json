@@ -1,0 +1,8 @@
+{
+  "name": "self-discovery",
+  "description": "A one-question-at-a-time interview that uncovers who you are and what to build, then writes your profile and master plan",
+  "version": "1.0.0",
+  "author": {
+    "name": "Ace Karimi"
+  }
+}
