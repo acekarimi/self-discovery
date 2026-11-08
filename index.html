@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Know Yourself, Build Your Plan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  /* Layout: a single interview column. The page reads like the first question of the interview, then the two ways in. */
+  --bg: #f4f5f8;
+  --surface: #ffffff;
+  --ink: #141824;
+  --muted: #5a6074;
+  --line: #dde0e8;
+  --accent: #2c46d6;
+  --accent-soft: #e6eafc;
+  --font-display: "Instrument Serif", Georgia, "Times New Roman", serif;
+  --font-body: "Public Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0f121a; --surface: #171b26; --ink: #eceef4; --muted: #a2a8ba;
+    --line: #2a3040; --accent: #8fa2ff; --accent-soft: #1f2645; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0f121a; --surface: #171b26; --ink: #eceef4; --muted: #a2a8ba;
+  --line: #2a3040; --accent: #8fa2ff; --accent-soft: #1f2645; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body { background: var(--bg); color: var(--ink); font-family: var(--font-body); font-size: 17px; line-height: 1.6; }
+.wrap { max-width: 760px; margin: 0 auto; padding: 48px 20px 72px; display: grid; gap: 56px; }
+h1, h2 { font-family: var(--font-display); font-weight: 400; text-wrap: balance; margin: 0; line-height: 1.08; }
+h1 { font-size: clamp(42px, 8vw, 72px); letter-spacing: -0.01em; }
+h1 em { color: var(--accent); }
+h2 { font-size: clamp(30px, 5vw, 40px); }
+p { margin: 0; max-width: 62ch; }
+.label { font-family: var(--font-mono); font-size: 13px; letter-spacing: 0.04em; text-transform: uppercase; color: var(--accent); }
+.hero { display: grid; gap: 20px; }
+.caret { display: inline-block; width: 0.08em; height: 0.85em; background: var(--accent); margin-left: 0.06em; vertical-align: -0.05em; animation: blink 1.1s steps(1) infinite; }
+@keyframes blink { 50% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .caret { animation: none; } }
+.lede { font-size: 19px; color: var(--muted); }
+.video { aspect-ratio: 16 / 9; border: 1px dashed var(--line); border-radius: 14px; background: var(--surface); display: grid; place-items: center; text-align: center; padding: 20px; color: var(--muted); }
+.video strong { display: block; color: var(--ink); font-weight: 600; margin-bottom: 4px; }
+.gets { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; }
+.get { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 18px; display: grid; gap: 6px; align-content: start; }
+.get .n { font-family: var(--font-mono); font-size: 13px; color: var(--accent); }
+.get b { font-weight: 600; }
+.get span { color: var(--muted); font-size: 15px; }
+section { display: grid; gap: 18px; }
+.route { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 24px; display: grid; gap: 16px; }
+.route.primary { border: 2px solid var(--accent); }
+.route header { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px; }
+.tag { font-family: var(--font-mono); font-size: 12px; background: var(--accent-soft); color: var(--accent); padding: 4px 10px; border-radius: 99px; }
+ol.steps { margin: 0; padding-left: 22px; display: grid; gap: 6px; }
+ol.steps li::marker { color: var(--accent); font-family: var(--font-mono); }
+.btn { text-decoration: none; display: inline-block; font: 600 16px/1 var(--font-body); background: var(--accent); color: #fff; border: 0; border-radius: 10px; padding: 14px 20px; cursor: pointer; justify-self: start; }
+:root[data-theme="dark"] .btn { color: #0f121a; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .btn { color: #0f121a; } }
+.btn:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; }
+.btn[disabled] { opacity: 0.55; cursor: not-allowed; }
+.row { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
+.status { font-size: 15px; color: var(--muted); min-height: 1.4em; }
+.prompt { margin: 0; max-height: 280px; overflow: auto; background: var(--bg); border: 1px solid var(--line); border-radius: 10px; padding: 16px; font: 13px/1.55 var(--font-mono); white-space: pre-wrap; word-wrap: break-word; color: var(--ink); }
+code { font-family: var(--font-mono); font-size: 0.9em; background: var(--accent-soft); padding: 1px 6px; border-radius: 6px; }
+.tips { display: grid; gap: 10px; margin: 0; padding-left: 20px; }
+.tips li { max-width: 62ch; }
+.next { border-top: 1px solid var(--line); padding-top: 32px; display: grid; gap: 12px; }
+.byline { font-size: 14px; color: var(--muted); }
+</style>
+</head>
+<body>
+<main class="wrap">
+  <div class="hero">
+    <div class="label">Question 1</div>
+    <h1>Who are you, <em>really</em>, and what should you build?<span class="caret" aria-hidden="true"></span></h1>
+    <p class="lede">This is the interview that figured out my business in one night. Claude asks you one question at a time, digs into your answers, and ends with a profile of who you are and a master plan for what to build. It's free. Pick the way in that fits you below.</p>
+  </div>
+
+  <div class="video" role="img" aria-label="Walkthrough video coming soon">
+    <div><strong>60-second walkthrough</strong>Video coming soon</div>
+  </div>
+
+  <section aria-labelledby="gets">
+    <h2 id="gets">What you walk away with</h2>
+    <div class="gets">
+      <div class="get"><span class="n">01</span><b>Who you are</b><span>Your strengths with proof, what drains you, your story and your biggest risk, in your own words.</span></div>
+      <div class="get"><span class="n">02</span><b>What to do first</b><span>A clear recommendation on where to focus, and a dated test that tells you when to change course.</span></div>
+      <div class="get"><span class="n">03</span><b>Your master plan</b><span>Your offer, a 90-day roadmap, your income math and a weekly scoreboard.</span></div>
+    </div>
+  </section>
+
+  <section aria-labelledby="start">
+    <h2 id="start">Start in two minutes</h2>
+
+    <div class="route primary">
+      <header><b>Option A: copy the prompt</b><span class="tag">Any Claude plan, including free</span></header>
+      <ol class="steps">
+        <li>Tap <b>Copy the prompt</b>.</li>
+        <li>Open a new chat at claude.ai or in the Claude app and paste it.</li>
+        <li>Pick Quick (about 20–30 minutes) or Deep (about 60–90 minutes) and answer the first question.</li>
+      </ol>
+      <div class="row">
+        <button class="btn" id="copy" type="button">Copy the prompt</button>
+        <span class="status" id="copy-status" role="status"></span>
+      </div>
+      <pre class="prompt" id="prompt" tabindex="0" aria-label="The interview prompt">You are going to run a guided self-discovery interview with me, then turn my answers into a profile of who I am and a master plan for what I want to build. Follow these instructions for the whole conversation.
+
+## How the interview works
+
+- Ask me ONE question per message. A question can have 2–4 short sub-parts if they&#x27;re about the same thing, but never stack separate questions.
+- Before each new question, reflect back what you heard in a few short bullets and name the pattern you see. Then ask the next question.
+- When my answer is vague, ask for proof: a specific moment, a story, a number or a name.
+- If I skip part of a question, ask it again once and tell me why it matters. If I skip the same thing three times, say so kindly, note it and move on.
+- When I&#x27;m stuck, give me 2–4 labeled options (A/B/C) to react to, and invite me to write my own.
+- Give my strengths short labels (like &quot;The Simplifier&quot; or &quot;The Connector&quot;), but if a label doesn&#x27;t fit, use my words instead.
+- When I correct your wording, use my wording from then on.
+- Track every number I give you: hours, income, prices, followers, dates.
+- If I want to jump ahead to a topic, go with it, then come back to what we skipped.
+- Be honest, not flattering. Point out gaps, math that doesn&#x27;t add up, or plans that spread me too thin. Give your reasons, then let me decide.
+- This is self-discovery and planning, not therapy. If I share something that sounds like a crisis or needs professional support, pause, respond with care and point me to professional help.
+
+At the start, tell me that we can pause any time and that talking through my answers with voice dictation (the microphone button, or a tool like Wispr Flow) gets better answers than typing. Then let me pick a pace:
+
+- **Quick (about 20–30 minutes):** cover topics 1, 3 and 5 below in about 8–10 questions, then write a short version of the three deliverables.
+- **Deep (about 60–90 minutes):** cover every topic, then write the full deliverables.
+
+## The topics, in order
+
+1. **Who I am:** my background and work so far; my 2–3 strongest skills, each with a moment that proves it, and who comes to me for what; what energizes me and what drains me (at least two of each); how many hours a week I can realistically give; and, gently, whether money or time pressure changes what should come first.
+2. **My story (only if I want to share it):** ask whether I want to go into the personal side. If I do, ask what things looked like at the worst point, what it cost me, the turning points, what I actually did, and what&#x27;s different now. Then help me put it into words: before → turning point → after, my core insight in one sentence, my method as steps, and &quot;I help [who] go from [before] to [after].&quot;
+3. **What I want to build:** for each business or idea, what it is, who it&#x27;s for (push me toward one specific audience first), what problem it solves, what the buyer gets, price ideas, what exists today, and 3–5 real people I could message this week who might pay for it.
+4. **How it fits together:** what comes first and why, my rough time split for the next 90 days, and which one I&#x27;d save if I could only keep one.
+5. **Goals in numbers:** 90 days, 1 year and 3 years. Ask for the minimum monthly income I need, and work backward from my big goals so I can see what it takes.
+6. **Resources:** partners and who owns what, budget, tools, any help I have. Then ask: &quot;Anything I didn&#x27;t ask that you should know before I write your plan?&quot;
+
+## When the interview is done
+
+Write three things, in the first person (&quot;I&quot;) so they read as mine:
+
+1. **Who I Am &amp; What I&#x27;m Building:** my track record, labeled strengths, energizers and drainers, capacity, where things stand now, the people around me, and my biggest risk in my own words.
+2. **My recommendation:** what to focus on first and why, what that does NOT mean, and one test with a date that would tell me to change course.
+3. **My master plan:** how my ideas connect, my offer and price ladder, a 90-day roadmap with checkpoints, a weekly rhythm, the income math worked backward from my goals, focus rules plus a &quot;parking lot&quot; for new ideas, and a simple scoreboard.
+
+Leave out sensitive personal details unless I ask you to include them. After you deliver, ask what I want to change, and apply my corrections exactly.
+
+Start now with a short welcome and the pace choice. Once I&#x27;ve picked, ask Question 1: my background, what I do today to earn money, and where I&#x27;m based.</pre>
+    </div>
+
+    <div class="route">
+      <header><b>Option B: install it as a skill</b><span class="tag">Claude Pro, Max, Team or Enterprise</span></header>
+      <p>A skill stays in your Claude, so you can run it again any time or use it with a partner.</p>
+      <ol class="steps">
+        <li>Download the skill file. Keep it zipped and don't rename it.</li>
+        <li>In Claude, go to <b>Customize → Skills</b>, tap <b>+</b>, then <b>Create skill → Upload a skill</b>, and choose the file.</li>
+        <li>Start a new chat and say: <code>Run the self-discovery-master-plan skill on me.</code></li>
+      </ol>
+      <div class="row">
+        <a class="btn" href="self-discovery-master-plan.zip" download>Download the skill</a>
+        
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="tips">
+    <h2 id="tips">Get the most out of it</h2>
+    <ul class="tips">
+      <li><b>Talk, don't type.</b> Use the microphone button or a voice tool like Wispr Flow. You'll say more than you'd ever type, and that's where the insight is.</li>
+      <li><b>Be specific.</b> When Claude asks for proof, give a real moment, a real number or a real name.</li>
+      <li><b>Take breaks.</b> You can stop and come back to the same chat later. On the free plan you may hit a message limit partway through; just continue when it resets.</li>
+      <li><b>Push back.</b> If a label or summary doesn't fit, correct it. Your words win.</li>
+    </ul>
+  </section>
+
+  <div class="next">
+    <h2>Got your plan?</h2>
+    <p>The next step is a content system that runs on it: ideas, scripts, editing and posting, with AI doing the heavy lifting. If you want help building yours, DM me <b>WORKFLOW</b> on Instagram.</p>
+    <p class="byline">Created by Ace Karimi</p>
+  </div>
+</main>
+<script>
+const copyBtn = document.getElementById("copy");
+const copyStatus = document.getElementById("copy-status");
+copyBtn.addEventListener("click", async () => {
+  const text = document.getElementById("prompt").textContent;
+  try {
+    await navigator.clipboard.writeText(text);
+    copyStatus.textContent = "Copied. Paste it into a new Claude chat.";
+  } catch (e) {
+    const sel = window.getSelection(); const r = document.createRange();
+    r.selectNodeContents(document.getElementById("prompt")); sel.removeAllRanges(); sel.addRange(r);
+    copyStatus.textContent = "Couldn't copy automatically. The prompt is selected; copy it with your keyboard or long-press.";
+  }
+});
+</script>
+</body>
+</html>
